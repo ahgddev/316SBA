@@ -15,9 +15,9 @@ let itemProductIMG = document.getElementById("pimg");
 let priceTitle = document.getElementById("price");
 let saleAlert = document.createElement("p");
 let qtyAlert = document.createElement("p");
+let qty_input = document.getElementById("qty_input");
 let item_title = document.getElementById("item_title");
 let stockBtn = document.getElementById("stock_info");
-let qty_input = document.getElementById("qty_input");
 let cartBtn = document.getElementById("cart_button");
 let cycleBtn = document.getElementById("cycle");
 let hashtags = document.getElementById("hashtags");
@@ -70,6 +70,23 @@ function setSaleMsg(sale){
         }
 }
 
+//Additional quantity validation
+function checkQtyInput(){
+    if(qty_input.value > 10){
+        qty_input.classList.add("error");
+        setTimeout(function(){
+            qty_input.value = 0;
+            qty_input.classList.remove("error");
+            qty_input.classList.add("changeBack");
+        }, 2000);
+        qty_input.classList.remove("changeBack");
+    }
+}
+
+qty_input.addEventListener("input", function(){
+    checkQtyInput();
+})
+
 function isQtyOverStock(currentQty, stock){
     if(currentQty > stock){
         priceTitle.style.color = "grey";
@@ -91,6 +108,7 @@ function isQtyOverStock(currentQty, stock){
     }
 }
 
+//Change information in the purchase menu based on the product color
 function changeItemInfoDueToColor(userQTY){
     let colorSelection = color_dropdown[color_dropdown.selectedIndex].value;
     let colorStock = "";

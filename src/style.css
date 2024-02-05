@@ -113,6 +113,8 @@ section {
     z-index: 5;
 }
 
+/* Purchase_Menu styling */
+
 #purchase_menu {
     width: 60%;
     border: 1px solid rgb(31, 2, 31);
@@ -129,6 +131,10 @@ section {
     width: 80%;
     height: 15%;
     margin-left: 10%;
+    border: 1px solid purple;
+    border-radius: 10px;
+    background-color: rgb(133, 95, 133);
+    font-size: 1.3em;
 }
 
 #purchase_divider {
@@ -138,6 +144,7 @@ section {
 
 #purchase_menu #color_dropdown {
     width: 50%;
+    border: 1px solid purple;
 }
 
 #purchase_menu label[for="color_dropdown"] {
@@ -145,10 +152,21 @@ section {
 }
 
 #purchase_menu #qty_input {
+    border: 1px solid purple;
     width: 30%;
 }
 
-/* Hastags */
+/* Quantity Input animations */
+.error {
+    border-color: red!important;
+}
+
+.changeBack {
+    transition: border 1s ease;
+    border-color: purple;
+}
+
+/* Hastags Styling*/
 #hashtags {
     text-align: center;
     z-index: -2;
