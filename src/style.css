@@ -41,7 +41,7 @@ main {
 }
 
 #side_menu_tab:hover {
-    background-color: blueviolet;
+    background-color: rgb(138, 43, 226);
 }
 
 .side_slide_out {
@@ -129,6 +129,10 @@ section {
 
 #purchase_menu #qty_input {
     width: 30%;
+}
+
+#insert {
+    width: 100px;
 }
 
 /* Hastags */

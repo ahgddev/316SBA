@@ -15,6 +15,8 @@ let qtyAlert = document.createElement("p");
 let item_title = document.getElementById("item_title");
 let stockBtn = document.getElementById("stock_info");
 let qty_input = document.getElementById("qty_input");
+let insert = document.getElementById("insert");
+
 
 
 side_menu_tab.addEventListener("click", function(event){
@@ -44,14 +46,12 @@ for(link of inner_menu_links){
 }
 
 function setSaleMsg(sale){
-    switch (sale){
+    switch (sale[1]){
            case "reduced":
-            saleAlert.innerHTML = `<p>Reduced Price</p>`;
-            priceTitle.appendChild(saleAlert);
+            saleAlert.innerText = `Reduced Price`;
             break;
            case "BOGO":
-            saleAlert.innerHTML = `<p>Buy One, Get One FREE!</p>`;
-            priceTitle.appendChild(saleAlert);
+            saleAlert.innerText = `Buy One, Get One FREE!`;
             break;
            case null:
             saleAlert.innerHTML = ``;
@@ -60,20 +60,30 @@ function setSaleMsg(sale){
 }
 
 function isQtyOverStock(currentQty, stock){
-    qtyAlert.innerHTML = ``;
+    debugger
     if(currentQty > stock){
-        debugger
-        qtyAlert.innerHTML = `<p>Max amount reached. Cannot order.</p>`;
-        priceTitle.prepend(qtyAlert);
         return true;
-    } else {
-        console.log('false')
-        return false;
+    } else if(stock == 0) {
+        stockBtn.innerText = "Out of Stock";
+        stockBtn.disabled = true;
+    }
+    else {
+        stockBtn.innerText = "In Stock";
+        stockBtn.disabled = false;
+        qtyAlert.innerText = ""
+        return false
     }
 }
 
 function changePrice(price, sale){
-
+    console.log(price)
+    if(sale[0] == false){
+        priceTitle.style.color = "grey";
+        priceTitle.innerHTML = `<h1><s>$15.99</s> $${price} </h1>`;
+    } else {
+        priceTitle.style.color = "black";
+        priceTitle.innerHTML = `<h1><s>$15.99</s> $${price} </h1>`;
+    }
 }
 
 function changeItemInfoDueToColor(userQTY){
@@ -89,8 +99,12 @@ function changeItemInfoDueToColor(userQTY){
         }
     }
     item_title.innerHTML = `<h1>Plush Toy ${colorSelection.charAt(0).toUpperCase() + colorSelection.slice(1)}</h1>`;
-    setSaleMsg(colorSale[1])
-    isQtyOverStock(userQTY, colorStock)
+    debugger
+    if(isQtyOverStock(userQTY, colorStock)){
+        qtyAlert.innerText = "Qty too much. Please choose a lower amount."
+    }
+    setSaleMsg(colorSale)
+    priceTitle.append(qtyAlert, saleAlert)
 }
 
 color_dropdown.addEventListener("change", function(event){
