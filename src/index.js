@@ -18,13 +18,14 @@ let qtyAlert = document.createElement("p");
 let item_title = document.getElementById("item_title");
 let stockBtn = document.getElementById("stock_info");
 let qty_input = document.getElementById("qty_input");
+let cartBtn = document.getElementById("cart_button");
 let cycleBtn = document.getElementById("cycle");
 
 //Load up default values for Purple on page load since it's the color chosen by default.
 window.onload = function(){
     isQtyOverStock(1, itemStock[0].stock);
     priceTitle.innerHTML = `<h1><s>$15.99</s> $${itemStock[0].price} </h1>`;
-    qty_input.value = 0;
+    qty_input.value = 1;
 }
 
 side_menu_tab.addEventListener("click", function(event){
@@ -75,6 +76,7 @@ function isQtyOverStock(currentQty, stock){
             stockBtn.disabled = true;
             priceTitle.style.color = "grey";
         }
+        cartBtn.disabled = true;
         return true;
     } 
     else {
@@ -82,6 +84,7 @@ function isQtyOverStock(currentQty, stock){
         stockBtn.disabled = false;
         qtyAlert.innerText = ""
         priceTitle.style.color = "black";
+        cartBtn.disabled = false;
         return false
     }
 }
@@ -138,3 +141,22 @@ cycleBtn.addEventListener("click", function(event){
     itemProductIMG.src = colorID[currentImgIndex];   
 });
 
+//Set up bottom related products with DocumentFragments
+let plushColors = [["Orange","/images/orange.jpg"], ["Black","/images/black.jpg"], ["Grey","/images/grey.jpg"], ["Red","/images/red.jpg"],["Brown","/images/brown.jpg"]];
+
+let productContainer = document.getElementById("product_container")
+
+let productFrag = new DocumentFragment();
+plushColors.forEach((plushData) => {
+    let holdDiv = document.createElement("div");
+    let pImg = document.createElement("img");
+    pImg.style.width = "100px";
+    pImg.style.height = "100px";
+    pImg.src = plushData[1];
+    let pTitle = document.createElement("h2");
+    pTitle.innerHTML = `Plush Toy ${plushData[0]}`;
+    holdDiv.append(pImg, pTitle);
+    productFrag.appendChild(holdDiv);
+})
+
+productContainer.appendChild(productFrag);

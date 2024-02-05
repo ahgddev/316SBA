@@ -170,3 +170,9 @@ section {
 #related_products {
     text-align: center;
 }
+
+#product_container {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+}
