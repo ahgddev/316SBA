@@ -20,8 +20,13 @@ menu_close.addEventListener("click",function(event){
 });
 
 for(link of inner_menu_links){
-    link.addEventListener("mouseover", function(event){
-        event.preventDefault();
-        event.target.classList.add("highlight");
+    console.log(inner_menu_links)
+    console.log(link)
+    link.addEventListener("mouseenter", function(event){
+        event.currentTarget.classList.add("active");
+    });
+    link.addEventListener("mouseleave", function(event){
+        console.log(link)
+        event.currentTarget.classList.remove("active");
     });
 }
