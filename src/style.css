@@ -11,10 +11,28 @@ main {
 }
 
 /* Side Menu Styling */
-#side_menu {
-    display: none;
+
+#inner_menu{
+    position: fixed;
+    left: -250px;
 }
 
+#side_menu_tab {
+    width: 80%;
+    height: 5%;
+    background-color: purple;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+#side_menu_tab:hover {
+    background-color: blueviolet;
+}
+
+.side_slide {
+    width: 0%;
+    transition: width 0.5s ease-out;
+}
 
 #main_area {
     display: flex;
