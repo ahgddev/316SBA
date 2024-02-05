@@ -33,7 +33,7 @@ window.onload = function(){
 //Add Event Listeners to the sideMenu/Menu for interaction
 side_menu_tab.addEventListener("click", function(event){
     side_menu_tab.classList.add("side_slide");
-    side_menu_tab.style.left = "-100px";
+    side_menu_tab.style.left = "-130px";
     inner_menu.classList.add("side_slide_in");
     inner_menu.style.left = "30px";
 });
@@ -44,7 +44,7 @@ menu_close.addEventListener("click",function(event){
     inner_menu.style.left = "-150px";
     side_menu_tab.classList.remove("side_slide_out");
     side_menu_tab.classList.add("side_slide_in");
-    side_menu_tab.style.left = "10px";
+    side_menu_tab.style.left = "0px";
 });
 
 for(link of inner_menu_links){

@@ -1,11 +1,10 @@
 body {
-    border-color: aqua;
     display: flex;
     flex-flow: column nowrap;
+    color: rgb(31, 2, 31);
 }
 
 main {
-    border: 1px solid blue;
     display: flex;
     flex-flow: row nowrap;
 }
@@ -14,13 +13,14 @@ main {
 
 #side_menu {
     width: 20%;
-    border: 1px solid red;
+    border: none;
 }
 
 #inner_menu{
     height: 50%;
     position: fixed;
     left: -150px;
+    border: none;
 }
 
 #inner_menu li{
@@ -32,7 +32,7 @@ main {
     
     width: 10%;
     height: 5%;
-    left: 10px;
+    left: 0px;
     position: fixed;
     background-color: purple;
     border-top-right-radius: 10px;
@@ -66,7 +66,8 @@ main {
 
 section {
     width: 100%;
-    border: 1px solid blue;
+    border-left: 1px solid rgb(31, 2, 31);
+    border-right: 1px solid rgb(31, 2, 31);
 }
 
 #item_info {
@@ -101,7 +102,8 @@ section {
 #product_img, #pimg {
     width: 300px;
     height: 300px;
-    border: 1px solid green;
+    border: 1px solid rgb(31, 2, 31);
+    border-radius: 10px;
 }
 
 #cycle {
@@ -113,11 +115,14 @@ section {
 
 #purchase_menu {
     width: 60%;
-    border: 1px solid green;
+    border: 1px solid rgb(31, 2, 31);
+    border-radius: 10px;
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-between;
     text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 #purchase_menu #stock_info, #purchase_menu #cart_button {
