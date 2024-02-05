@@ -99,6 +99,13 @@ section {
     border: 1px solid green;
 }
 
+#cycle {
+    position: relative;
+    top: 0px;
+    left: 10px;
+    z-index: 5;
+}
+
 #purchase_menu {
     width: 60%;
     border: 1px solid green;
@@ -131,8 +138,8 @@ section {
     width: 30%;
 }
 
-#insert {
-    width: 100px;
+#hashtags {
+    z-index: -2;
 }
 
 /* Hastags */

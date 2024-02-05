@@ -9,7 +9,8 @@ let itemStock = [
     {color:"blue", stock: 10, price:"15.99", on_sale: [true, "BOGO"]},
     {color:"pink", stock: 8, price:"5.99", on_sale: [true, "reduced"]}
 ];
-let itemIMGs = [["purple","/images/purple1.jpg","/images/purple2.jpg","/images/purple3.jpg","/images/purple14.jpg"],["green","/images/green1.jpg","/images/green2.jpg","/images/green3.jpg","/images/green4.jpg"],["blue","/images/blue1.jpg","/images/blue2.jpg","/images/blue3.jpg","/images/blue4.jpg"],["pink","/images/pink1.jpg","/images/pink2.jpg","/images/pink3.jpg","/images/pink4.jpg"]];
+let itemIMGs = [["purple","/images/purple1.jpg","/images/purple2.jpg","/images/purple3.jpg","/images/purple4.jpg"],["green","/images/green1.jpg","/images/green2.jpg","/images/green3.jpg","/images/green4.jpg"],["blue","/images/blue1.jpg","/images/blue2.jpg","/images/blue3.jpg","/images/blue4.jpg"],["pink","/images/pink1.jpg","/images/pink2.jpg","/images/pink3.jpg","/images/pink4.jpg"]];
+let currentImgIndex = 1;
 let itemProductIMG = document.getElementById("pimg");
 let priceTitle = document.getElementById("price");
 let saleAlert = document.createElement("p");
@@ -17,9 +18,14 @@ let qtyAlert = document.createElement("p");
 let item_title = document.getElementById("item_title");
 let stockBtn = document.getElementById("stock_info");
 let qty_input = document.getElementById("qty_input");
-let insert = document.getElementById("insert");
+let cycleBtn = document.getElementById("cycle");
 
-
+//Load up default values for Purple on page load since it's the color chosen by default.
+window.onload = function(){
+    isQtyOverStock(1, itemStock[0].stock);
+    priceTitle.innerHTML = `<h1><s>$15.99</s> $${itemStock[0].price} </h1>`;
+    qty_input.value = 0;
+}
 
 side_menu_tab.addEventListener("click", function(event){
     side_menu_tab.classList.add("side_slide");
@@ -42,7 +48,6 @@ for(link of inner_menu_links){
         event.currentTarget.classList.add("active");
     });
     link.addEventListener("mouseleave", function(event){
-        console.log(link)
         event.currentTarget.classList.remove("active");
     });
 }
@@ -62,14 +67,16 @@ function setSaleMsg(sale){
 }
 
 function isQtyOverStock(currentQty, stock){
+    debugger
     if(currentQty > stock){
         priceTitle.style.color = "grey";
+        if (stock == 0) {
+            stockBtn.innerText = "Out of Stock";
+            stockBtn.disabled = true;
+            priceTitle.style.color = "grey";
+        }
         return true;
-    } else if(stock == 0) {
-        stockBtn.innerText = "Out of Stock";
-        stockBtn.disabled = true;
-        priceTitle.style.color = "grey";
-    }
+    } 
     else {
         stockBtn.innerText = "In Stock";
         stockBtn.disabled = false;
@@ -91,14 +98,20 @@ function changeItemInfoDueToColor(userQTY){
             colorSale = item.on_sale;
         }
     }
-    priceTitle.innerHTML = `<h1><s>$15.99</s> $${colorPrice} </h1>`;
+    console.log(colorPrice)
+    if(colorPrice == "15.99"){
+        priceTitle.innerHTML = `<h1> $${colorPrice} </h1>`;
+    } else {
+        priceTitle.innerHTML = `<h1><s>$15.99</s> $${colorPrice} </h1>`;
+    }
+    
     item_title.innerHTML = `<h1>Plush Toy ${colorSelection.charAt(0).toUpperCase() + colorSelection.slice(1)}</h1>`;
     if(isQtyOverStock(userQTY, colorStock)){
         qtyAlert.innerText = "Qty too much. Please choose a lower amount."
     }
     setSaleMsg(colorSale);
     priceTitle.append(qtyAlert, saleAlert);
-    setImage(colorSelection)
+    setImageColor(colorSelection)
 }
 
 color_dropdown.addEventListener("change", function(event){
@@ -106,14 +119,22 @@ color_dropdown.addEventListener("change", function(event){
     changeItemInfoDueToColor(userQty);
 });
 
-function setImage(color){
-    debugger
+//Product Image Scripting
+function setImageColor(color){
     for (colorID of itemIMGs){
         if(colorID[0] == color){
-            console.log(colorID)
-            itemProductIMG.src= colorID[1];
+            itemProductIMG.src = colorID[1];
+            return colorID;
         }
-    }
+    }  
 }
-//let current img = 1
-//on click, change image to next image in array.
+
+cycleBtn.addEventListener("click", function(event){
+    let currentColor = setImageColor(color_dropdown[color_dropdown.selectedIndex].value);
+        currentImgIndex += 1;
+    if(currentImgIndex > currentColor.length - 1){
+        currentImgIndex = 1;
+    }
+    itemProductIMG.src = colorID[currentImgIndex];   
+});
+
