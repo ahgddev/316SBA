@@ -23,9 +23,12 @@ main {
     position: fixed;
     left: -220px;
     border: none;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
     background-color: rgb(172, 129, 172);
     padding-left: 4%;
     padding-right: 1.5%;
+    padding-top: 1%;
 }
 
 #inner_menu ul {
