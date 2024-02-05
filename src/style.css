@@ -87,3 +87,20 @@ section {
     width: 30%;
 }
 
+/* Hastags */
+#hashtags {
+    text-align: center;
+}
+#hashtags p {
+    display: inline-block;
+}
+
+#item_details {
+    text-align: center;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+table td {
+    width: 25%;
+}
