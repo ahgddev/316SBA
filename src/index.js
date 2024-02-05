@@ -8,7 +8,9 @@ let itemStock = [
     {color:"green", stock: 3, price:"3.99", on_sale: [true, "reduced"]},
     {color:"blue", stock: 10, price:"15.99", on_sale: [true, "BOGO"]},
     {color:"pink", stock: 8, price:"5.99", on_sale: [true, "reduced"]}
-]
+];
+let priceTitle = document.getElementById("price");
+let saleAlert = document.createElement("h1");
 
 side_menu_tab.addEventListener("click", function(event){
     side_menu_tab.classList.add("side_slide");
@@ -37,10 +39,18 @@ for(link of inner_menu_links){
 }
 
 function setSaleMsg(sale){
-    let saleAlert = document.createElement("h1");
     switch (sale){
            case "reduced":
-            console.log("I'm cheap!");
+            saleAlert.innerHTML = `<p>Reduced Price</p>`;
+            priceTitle.appendChild(saleAlert);
+            break;
+           case "BOGO":
+            saleAlert.innerHTML = `<p>Buy One, Get One FREE!</p>`;
+            priceTitle.appendChild(saleAlert);
+            break;
+           case null:
+            saleAlert.innerHTML = ``;
+            break;
         }
 }
 
@@ -57,13 +67,8 @@ function changeItemInfoDueToColor(){
             console.log(colorStock,colorPrice,colorSale)
         }
     }
-    if(colorSale[1] != null){
-        setSaleMsg(colorSale[1])
-    }
-    
+    setSaleMsg(colorSale[1])
 }
-
-changeItemInfoDueToColor()
 
 color_dropdown.addEventListener("change", function(event){
     changeItemInfoDueToColor();
