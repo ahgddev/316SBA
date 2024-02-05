@@ -36,7 +36,7 @@ for(link of inner_menu_links){
     });
 }
 
-function setSaleMsg(color, sale){
+function setSaleMsg(sale){
     let saleAlert = document.createElement("h1");
     switch (sale){
            case "reduced":
@@ -57,8 +57,10 @@ function changeItemInfoDueToColor(){
             console.log(colorStock,colorPrice,colorSale)
         }
     }
-
-    setSaleMsg(colorSelection)
+    if(colorSale[1] != null){
+        setSaleMsg(colorSale[1])
+    }
+    
 }
 
 changeItemInfoDueToColor()
