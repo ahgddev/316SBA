@@ -77,6 +77,11 @@ section {
 #item_header {
     display: flex;
     flex-flow: column nowrap;
+    padding-left: 3%;
+}
+
+.bold{
+    font-size: 1.5em;
 }
 
 #item_header h1, #item_header h2{
@@ -138,16 +143,17 @@ section {
     width: 30%;
 }
 
-#hashtags {
-    z-index: -2;
-}
-
 /* Hastags */
 #hashtags {
     text-align: center;
+    z-index: -2;
 }
 #hashtags p {
     display: inline-block;
+    margin-left: 1%;
+    padding: 1%;
+    background-color: rgb(160, 115, 202);
+    border-radius: 10px;
 }
 
 #item_details {

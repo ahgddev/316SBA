@@ -20,14 +20,17 @@ let stockBtn = document.getElementById("stock_info");
 let qty_input = document.getElementById("qty_input");
 let cartBtn = document.getElementById("cart_button");
 let cycleBtn = document.getElementById("cycle");
+let hashtags = document.getElementById("hashtags");
 
 //Load up default values for Purple on page load since it's the color chosen by default.
 window.onload = function(){
     isQtyOverStock(1, itemStock[0].stock);
     priceTitle.innerHTML = `<h1><s>$15.99</s> $${itemStock[0].price} </h1>`;
     qty_input.value = 1;
+    item_title.innerHTML = `<h1>Plush Toy Purple</h1>`
 }
 
+//Add Event Listeners to the sideMenu/Menu for interaction
 side_menu_tab.addEventListener("click", function(event){
     side_menu_tab.classList.add("side_slide");
     side_menu_tab.style.left = "-100px";
@@ -68,7 +71,6 @@ function setSaleMsg(sale){
 }
 
 function isQtyOverStock(currentQty, stock){
-    debugger
     if(currentQty > stock){
         priceTitle.style.color = "grey";
         if (stock == 0) {
@@ -141,7 +143,7 @@ cycleBtn.addEventListener("click", function(event){
     itemProductIMG.src = colorID[currentImgIndex];   
 });
 
-//Set up bottom related products with DocumentFragments
+//Set up Related products with DocumentFragments
 let plushColors = [["Orange","/images/orange.jpg"], ["Black","/images/black.jpg"], ["Grey","/images/grey.jpg"], ["Red","/images/red.jpg"],["Brown","/images/brown.jpg"]];
 
 let productContainer = document.getElementById("product_container")
@@ -160,3 +162,11 @@ plushColors.forEach((plushData) => {
 })
 
 productContainer.appendChild(productFrag);
+
+//Make the first hashtag Bold to show it's popular.
+hashtags.firstElementChild.classList.add("bold");
+let popularText = document.createElement("em");
+popularText.innerHTML = `<em>Trending!</em>`;
+popularText.style.marginRight = "3%";
+hashtags.firstElementChild.classList.add("bold");
+hashtags.firstElementChild.prepend(popularText);
