@@ -35,13 +35,13 @@ side_menu_tab.addEventListener("click", function(event){
     side_menu_tab.classList.add("side_slide");
     side_menu_tab.style.left = "-130px";
     inner_menu.classList.add("side_slide_in");
-    inner_menu.style.left = "30px";
+    inner_menu.style.left = "0px";
 });
 
 menu_close.addEventListener("click",function(event){
     inner_menu.classList.remove("side_slide_in");
     inner_menu.classList.add("side_slide_out");
-    inner_menu.style.left = "-150px";
+    inner_menu.style.left = "-220px";
     side_menu_tab.classList.remove("side_slide_out");
     side_menu_tab.classList.add("side_slide_in");
     side_menu_tab.style.left = "0px";
@@ -88,6 +88,7 @@ qty_input.addEventListener("input", function(){
 })
 
 function isQtyOverStock(currentQty, stock){
+    debugger
     if(currentQty > stock){
         priceTitle.style.color = "grey";
         if (stock == 0) {
@@ -188,3 +189,16 @@ popularText.innerHTML = `<em>Trending!</em>`;
 popularText.style.marginRight = "3%";
 hashtags.firstElementChild.classList.add("bold");
 hashtags.firstElementChild.prepend(popularText);
+
+//Validate and add to cart. Let the user know if cart addition is successful.
+cartBtn.addEventListener("click", function(){
+    if(qty_input.value != 0){
+        localStorage.setItem("cart", {
+            "color" : color_dropdown.value,
+            "qty": qty_input.value}
+            );
+            alert("Cart addition success!");
+    } else {
+        alert("Quantity needs to be more than 1.");
+    }
+});

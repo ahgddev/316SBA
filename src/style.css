@@ -2,6 +2,7 @@ body {
     display: flex;
     flex-flow: column nowrap;
     color: rgb(31, 2, 31);
+    font-family: 'Poppins', sans-serif;
 }
 
 main {
@@ -14,30 +15,40 @@ main {
 #side_menu {
     width: 20%;
     border: none;
+    text-align: center;
 }
 
 #inner_menu{
     height: 50%;
     position: fixed;
-    left: -150px;
+    left: -220px;
     border: none;
+    background-color: rgb(172, 129, 172);
+    padding-left: 4%;
+    padding-right: 1.5%;
+}
+
+#inner_menu ul {
+    padding: 0;
 }
 
 #inner_menu li{
     line-height: 2rem;
     margin-bottom: 10px;
+    list-style-type: none;
+    border-radius: 10px;
 }
 
 #side_menu_tab {
-    
     width: 10%;
-    height: 5%;
+    height: 7%;
     left: 0px;
     position: fixed;
     background-color: purple;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     transition-duration: .5s;
+    margin-bottom: 0;
 }
 
 #side_menu_tab:hover {
@@ -53,7 +64,7 @@ main {
 }
 
 #inner_menu ul li.active {
-    background-color: rgb(51, 38, 61);
+    background-color: rgb(134, 108, 153);
     transition: background-color .5s linear;
 }
 
@@ -79,6 +90,7 @@ section {
     display: flex;
     flex-flow: column nowrap;
     padding-left: 3%;
+    font-style: italic;
 }
 
 .bold{
@@ -111,6 +123,10 @@ section {
     top: 0px;
     left: 10px;
     z-index: 5;
+    border: 1px solid purple;
+    border-radius: 10px;
+    background-color: rgb(133, 95, 133);
+    font-size: 1.1em;
 }
 
 /* Purchase_Menu styling */
