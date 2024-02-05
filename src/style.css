@@ -12,9 +12,19 @@ main {
 
 /* Side Menu Styling */
 
+#side_menu {
+    width: 20%;
+    border: 1px solid red;
+}
+
 #inner_menu{
+    height: 50%;
     position: fixed;
     left: -150px;
+}
+
+#inner_menu li{
+    line-height: 2rem;
 }
 
 #side_menu_tab {
@@ -41,15 +51,16 @@ main {
     transition: left 0.5s ease-in;
 }
 
+.highlight {
+    background-color: rgb(51, 38, 61);
+    transition: background-color .5s linear;
+}
+
+/* Main Area styling */
+
 #main_area {
     display: flex;
     flex-flow: row wrap;
-}
-
-#side_menu {
-    width: 20%;
-    /* height: 70%; */
-    border: 1px solid red;
 }
 
 section {

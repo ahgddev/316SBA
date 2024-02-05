@@ -1,6 +1,7 @@
 let side_menu_tab = document.getElementById("side_menu_tab");
 let inner_menu = document.getElementById("inner_menu");
 let menu_close = document.getElementById("close_menu");
+let inner_menu_links = document.querySelectorAll("ul li");
 
 side_menu_tab.addEventListener("click", function(event){
     side_menu_tab.classList.add("side_slide");
@@ -17,3 +18,10 @@ menu_close.addEventListener("click",function(event){
     side_menu_tab.classList.add("side_slide_in");
     side_menu_tab.style.left = "10px";
 });
+
+for(link of inner_menu_links){
+    link.addEventListener("mouseover", function(event){
+        event.preventDefault();
+        event.target.classList.add("highlight");
+    });
+}
