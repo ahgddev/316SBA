@@ -24,7 +24,7 @@ The user profile image is from [iconmonstr](https://iconmonstr.com/user-20-png/)
 - Level of effort displayed in creativity, presentation, and user experience.
 
 ## Tools Used
-VSCode, iconmonstr
+VSCode, node.js
 
 ## Coding Languages used
 HTML,CSS,(vanilla) Javascript
