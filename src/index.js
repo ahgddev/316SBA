@@ -12,6 +12,7 @@ let itemStock = [
 let priceTitle = document.getElementById("price");
 let saleAlert = document.createElement("p");
 let qtyAlert = document.createElement("p");
+let item_title = document.getElementById("item_title");
 let stockBtn = document.getElementById("stock_info");
 let qty_input = document.getElementById("qty_input");
 
@@ -71,6 +72,10 @@ function isQtyOverStock(currentQty, stock){
     }
 }
 
+function changePrice(price, sale){
+
+}
+
 function changeItemInfoDueToColor(userQTY){
     let colorSelection = color_dropdown[color_dropdown.selectedIndex].value;
     let colorStock = "";
@@ -83,6 +88,7 @@ function changeItemInfoDueToColor(userQTY){
             colorSale = item.on_sale;
         }
     }
+    item_title.innerHTML = `<h1>Plush Toy ${colorSelection.charAt(0).toUpperCase() + colorSelection.slice(1)}</h1>`;
     setSaleMsg(colorSale[1])
     isQtyOverStock(userQTY, colorStock)
 }
