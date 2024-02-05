@@ -1,0 +1,10 @@
+body {
+    border-color: aqua;
+}
+main {
+    border: 1px solid blue;
+}
+
+section {
+    border: 1px solid blue;
+}
