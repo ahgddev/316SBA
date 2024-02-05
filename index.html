@@ -20,10 +20,17 @@
                     <div id="product_img"></div>
                     <div id="purchase_menu">
                         <button id="stock_info">In Stock</button>
-                        <label for="color_dropdown">Color</label>
-                        <select name="color_dpdn" id="color_dropdown">Color Options</select>
-                        <label for="quantity">Quantity</label>
-                        <button id="minus">-</button><input type="number" name="qty_input" id="qty_input"><button id="plus">+</button>
+                        <div class="purchase_divider">
+                            <label for="color_dropdown">Color</label>
+                            <select name="color_dpdn" id="color_dropdown">Color Options</select>
+                            </label>
+                        </div>
+                        <div class="purchase_divider">
+                            <label for="quantity">Quantity</label>
+                            <button id="minus">-</button>
+                            <input type="number" name="qty_input" id="qty_input">
+                            <button id="plus">+</button>
+                        </div>
                         <h2 id="price">$5.99 <em>$3.99</em> Sale Price</h2>
                         <button id="cart_button">Add to Cart</button>
                     </div>

@@ -14,12 +14,8 @@ main {
     flex-flow: row wrap;
 }
 
-#main_area section, table {
-    width: 70%;
-}
-
 #side_menu {
-    width: 15%;
+    width: 20%;
     /* height: 70%; */
     border: 1px solid red;
 }
@@ -60,6 +56,34 @@ section {
 }
 
 #purchase_menu {
-    width: 50%;
+    width: 60%;
     border: 1px solid green;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    text-align: center;
 }
+
+#purchase_menu #stock_info, #purchase_menu #cart_button {
+    width: 80%;
+    height: 15%;
+    margin-left: 10%;
+}
+
+#purchase_divider {
+    display: inline-block;
+
+}
+
+#purchase_menu #color_dropdown {
+    width: 50%;
+}
+
+#purchase_menu label[for="color_dropdown"] {
+    width: 20%;
+}
+
+#purchase_menu #qty_input {
+    width: 30%;
+}
+
