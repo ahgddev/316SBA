@@ -3,11 +3,18 @@ body {
     display: flex;
     flex-flow: column nowrap;
 }
+
 main {
     border: 1px solid blue;
     display: flex;
     flex-flow: row nowrap;
 }
+
+/* Side Menu Styling */
+#side_menu {
+    display: none;
+}
+
 
 #main_area {
     display: flex;
