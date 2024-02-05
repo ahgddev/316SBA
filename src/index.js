@@ -9,6 +9,8 @@ let itemStock = [
     {color:"blue", stock: 10, price:"15.99", on_sale: [true, "BOGO"]},
     {color:"pink", stock: 8, price:"5.99", on_sale: [true, "reduced"]}
 ];
+let itemIMGs = [["purple","/images/purple1.jpg","/images/purple2.jpg","/images/purple3.jpg","/images/purple14.jpg"],["green","/images/green1.jpg","/images/green2.jpg","/images/green3.jpg","/images/green4.jpg"],["blue","/images/blue1.jpg","/images/blue2.jpg","/images/blue3.jpg","/images/blue4.jpg"],["pink","/images/pink1.jpg","/images/pink2.jpg","/images/pink3.jpg","/images/pink4.jpg"]];
+let itemProductIMG = document.getElementById("pimg");
 let priceTitle = document.getElementById("price");
 let saleAlert = document.createElement("p");
 let qtyAlert = document.createElement("p");
@@ -60,7 +62,6 @@ function setSaleMsg(sale){
 }
 
 function isQtyOverStock(currentQty, stock){
-    debugger
     if(currentQty > stock){
         priceTitle.style.color = "grey";
         return true;
@@ -92,15 +93,27 @@ function changeItemInfoDueToColor(userQTY){
     }
     priceTitle.innerHTML = `<h1><s>$15.99</s> $${colorPrice} </h1>`;
     item_title.innerHTML = `<h1>Plush Toy ${colorSelection.charAt(0).toUpperCase() + colorSelection.slice(1)}</h1>`;
-    debugger
     if(isQtyOverStock(userQTY, colorStock)){
         qtyAlert.innerText = "Qty too much. Please choose a lower amount."
     }
     setSaleMsg(colorSale);
     priceTitle.append(qtyAlert, saleAlert);
+    setImage(colorSelection)
 }
 
 color_dropdown.addEventListener("change", function(event){
     let userQty = document.getElementById("qty_input").value;
     changeItemInfoDueToColor(userQty);
 });
+
+function setImage(color){
+    debugger
+    for (colorID of itemIMGs){
+        if(colorID[0] == color){
+            console.log(colorID)
+            itemProductIMG.src= colorID[1];
+        }
+    }
+}
+//let current img = 1
+//on click, change image to next image in array.
