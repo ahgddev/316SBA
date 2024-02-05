@@ -18,11 +18,15 @@ main {
 }
 
 #side_menu_tab {
-    width: 80%;
+    
+    width: 10%;
     height: 5%;
+    left: 10px;
+    position: fixed;
     background-color: purple;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
+    transition-duration: .5s;
 }
 
 #side_menu_tab:hover {
@@ -30,8 +34,7 @@ main {
 }
 
 .side_slide {
-    width: 0%;
-    transition: width 0.5s ease-out;
+    transition: left 0.5s ease-out;
 }
 
 #main_area {
