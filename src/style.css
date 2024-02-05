@@ -6,10 +6,26 @@ body {
 main {
     border: 1px solid blue;
     display: flex;
-    flex-flow: column nowrap;
+    flex-flow: row nowrap;
+}
+
+#main_area {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+#main_area section, table {
+    width: 70%;
+}
+
+#side_menu {
+    width: 15%;
+    /* height: 70%; */
+    border: 1px solid red;
 }
 
 section {
+    width: 100%;
     border: 1px solid blue;
 }
 
@@ -31,6 +47,12 @@ section {
     display: inline;
 }
 
+#hero_menu {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+}
+
 #product_img {
     width: 300px;
     height: 300px;
@@ -38,5 +60,6 @@ section {
 }
 
 #purchase_menu {
+    width: 50%;
     border: 1px solid green;
 }
