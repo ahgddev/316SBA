@@ -10,7 +10,11 @@ let itemStock = [
     {color:"pink", stock: 8, price:"5.99", on_sale: [true, "reduced"]}
 ];
 let priceTitle = document.getElementById("price");
-let saleAlert = document.createElement("h1");
+let saleAlert = document.createElement("p");
+let qtyAlert = document.createElement("p");
+let stockBtn = document.getElementById("stock_info");
+let qty_input = document.getElementById("qty_input");
+
 
 side_menu_tab.addEventListener("click", function(event){
     side_menu_tab.classList.add("side_slide");
@@ -54,7 +58,20 @@ function setSaleMsg(sale){
         }
 }
 
-function changeItemInfoDueToColor(){
+function isQtyOverStock(currentQty, stock){
+    qtyAlert.innerHTML = ``;
+    if(currentQty > stock){
+        debugger
+        qtyAlert.innerHTML = `<p>Max amount reached. Cannot order.</p>`;
+        priceTitle.prepend(qtyAlert);
+        return true;
+    } else {
+        console.log('false')
+        return false;
+    }
+}
+
+function changeItemInfoDueToColor(userQTY){
     let colorSelection = color_dropdown[color_dropdown.selectedIndex].value;
     let colorStock = "";
     let colorPrice = "";
@@ -64,12 +81,13 @@ function changeItemInfoDueToColor(){
             colorStock = item.stock;
             colorPrice = item.price;
             colorSale = item.on_sale;
-            console.log(colorStock,colorPrice,colorSale)
         }
     }
     setSaleMsg(colorSale[1])
+    isQtyOverStock(userQTY, colorStock)
 }
 
 color_dropdown.addEventListener("change", function(event){
-    changeItemInfoDueToColor();
+    let userQty = document.getElementById("qty_input").value;
+    changeItemInfoDueToColor(userQty);
 });
