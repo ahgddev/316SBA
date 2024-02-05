@@ -23,8 +23,8 @@ The user profile image is from [iconmonstr](https://iconmonstr.com/user-20-png/)
 - Include a README file that contains a description of your application. (This!)
 - Level of effort displayed in creativity, presentation, and user experience.
 
-  ## Tools Used
-  VSCode, iconmonstr
+## Tools Used
+VSCode, iconmonstr
 
-  ## Coding Languages used
-  HTML,CSS,(vanilla) Javascript.
+## Coding Languages used
+HTML,CSS,(vanilla) Javascript
