@@ -14,7 +14,7 @@ main {
 
 #inner_menu{
     position: fixed;
-    left: -250px;
+    left: -150px;
 }
 
 #side_menu_tab {
@@ -33,8 +33,12 @@ main {
     background-color: blueviolet;
 }
 
-.side_slide {
+.side_slide_out {
     transition: left 0.5s ease-out;
+}
+
+.side_slide_in {
+    transition: left 0.5s ease-in;
 }
 
 #main_area {
