@@ -62,26 +62,27 @@ function setSaleMsg(sale){
 function isQtyOverStock(currentQty, stock){
     debugger
     if(currentQty > stock){
+        priceTitle.style.color = "grey";
         return true;
     } else if(stock == 0) {
         stockBtn.innerText = "Out of Stock";
         stockBtn.disabled = true;
+        priceTitle.style.color = "grey";
     }
     else {
         stockBtn.innerText = "In Stock";
         stockBtn.disabled = false;
         qtyAlert.innerText = ""
+        priceTitle.style.color = "black";
         return false
     }
 }
 
 function changePrice(price, sale){
-    console.log(price)
     if(sale[0] == false){
-        priceTitle.style.color = "grey";
         priceTitle.innerHTML = `<h1><s>$15.99</s> $${price} </h1>`;
     } else {
-        priceTitle.style.color = "black";
+        
         priceTitle.innerHTML = `<h1><s>$15.99</s> $${price} </h1>`;
     }
 }
